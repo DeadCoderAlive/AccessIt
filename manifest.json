@@ -1,0 +1,25 @@
+
+{
+  "manifest_version": 2,
+  "name": "AccessIT",
+  "version": "1",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": [
+     "activeTab",
+   "http://localhost:8080/*",
+   "mainMenu.html"
+  ],
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "content_scripts": [{
+     "js": ["jquery.min.js","accessit.js"],
+     "matches": ["http://*/*", "https://*/*"]
+   }],
+
+  "minimum_chrome_version": "28"
+}

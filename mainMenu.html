@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AccessIt</title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script type="text/javascript" src="accessit.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="accessit.css">
+
+</head>
+<body>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Step 1 :Initialize</h3>
+  </div>
+  <div class="panel-body">
+  <div class="dropdown">
+  	  <button type="button" style="background-color:#e5eaeb;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="serviceTypeBtn" aria-haspopup="true" aria-expanded="true">
+  </button>
+  <ul id="serviceType" class="dropdown-menu">
+    <li id="1"><a>Provide</a></li>
+    <li id="2"><a>Request</a></li>
+  </ul>
+  </div>
+</div>
+	<button id="connectBtn" class="btn btn-primary" type="button">Connect</button> 
+	<div id="userCanvas">User Id</div>
+	<div id="userIdSpace">
+    </div>   
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Step 2 :Circumvent</h3>
+  </div>
+  <div class="panel-body">
+	<div class="container">
+				
+	<div id="circumventPanel" class="col-sm-6" style="display: inline-block;">
+    <div class="input-group">
+      <input id="urltext" type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button id="btnGo" class="btn btn-primary" type="button">Go!</button>
+      </span>
+    </div>
+    </div>
+    <div id="Providepanel" class="col-sm-6" style="display: inline-block;">
+        <button class="btn btn-primary" id="providePanelId" type="button">Provide Circumvention</button>
+    </div>
+
+
+</div>
+	  </div>
+  	<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Complete: Disconnect</h3>
+  </div>
+  <div class="panel-body">
+	<button type="button">Disconnect</button>
+  </div>
+</div>
+
+
+
+<div id="userIdSpace">
+</div>
+</body>
+</html>
