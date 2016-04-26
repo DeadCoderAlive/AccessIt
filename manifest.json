@@ -7,10 +7,34 @@
     "128": "icon.png"
   },
   "permissions": [
+      "webview",
      "activeTab",
    "http://localhost:8080/*",
    "mainMenu.html"
   ],
+
+  "webview" :{
+    "partitions": [
+      {
+        "name":"static",
+        "accessible_resources":["web.html"]
+      },
+
+      {
+
+        "name" :"*",
+        "accessible_resources":["*"]
+
+      }
+
+
+    ]
+
+
+
+  },
+
+
   "app": {
     "background": {
       "scripts": ["background.js"]

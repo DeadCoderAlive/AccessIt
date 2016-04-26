@@ -66,7 +66,7 @@ xhr.send();
    async: false,
    data:JSON.stringify(parametersToPost),
    success: function (data) { 
-          
+
 
    }
 
@@ -96,7 +96,59 @@ function postProvision() {
    async: false,
    data:JSON.stringify(parametersToPost),
    success: function (data) { 
-  
+        var RequesterUserId;
+        var RequestedUrl;
+         $.ajax
+   ({
+      type: "GET",
+
+      url: 'https://localhost:8080/provideProxy',
+      headers: { 
+       'Accept': 'application/json',
+       'Content-Type': 'application/json' 
+   },
+   dataType: 'json',
+   async: false,
+   success: function (data) { 
+      
+          RequesterUserId = data.userId;
+          RequestedUrl   =data.url;
+
+          var htmlTextResponse = httpGet(RequestedUrl);
+          document.write(htmlTextResponse);
+
+          var htmlFileParams = {requesterUserId:RequesterUserId,htmlBody:htmlTextResponse};
+
+           $.ajax
+   ({
+      type: "POST",
+
+      url: 'https://localhost:8080/provideWebPage',
+      headers: { 
+       'Accept': 'application/json',
+       'Content-Type': 'application/json' 
+   },
+   dataType: 'json',
+   async: false,
+   data:JSON.stringify(htmlFileParams),
+   success: function (data) { 
+      
+        var successDiv = document.createElement('div');
+          successDiv.innerHTML="successfully provided";
+          document.getElementById("Providepanel").appendChild(successDiv.firstChild);
+          
+
+   }
+
+})
+
+
+
+   }
+
+})
+
+
 
 
 
@@ -110,6 +162,27 @@ function postProvision() {
 
 }
 
+
+function httpGet(theUrl)
+{
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            return xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", theUrl, false );
+    xmlhttp.send();    
+}
 
 function open(argument) {
   chrome.app.window.create("mainMenu.html");
